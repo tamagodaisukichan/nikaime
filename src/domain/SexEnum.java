@@ -1,10 +1,12 @@
 package domain;
 
-public class SexEnum
-{
 
-}
-enum Sex
+public enum SexEnum
 {
-	Otoko,Onna
+	Otoko,Onna;
+	private String sex;
+	SexEnum(String sex)
+	{
+		this.sex=sex;
+	}
 }

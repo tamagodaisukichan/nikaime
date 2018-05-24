@@ -65,7 +65,7 @@ public class KaiinVo implements Serializable{
 
 	public String getSex(){ return this.sex; }
 
-	public void setSex(String sex){ this.sex = sex; }
+	public void setSex(String sex){ this.sex =; }
 
 	public String toString(){
 		StringBuffer buffer = new StringBuffer();

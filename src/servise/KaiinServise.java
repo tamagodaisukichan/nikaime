@@ -3,6 +3,7 @@ package servise;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import bean.RegistBean;
 import bean.SerchBean;
 import dao.Dao;
 import dao.KaiinMgr;
@@ -28,5 +29,9 @@ public class KaiinServise {
 		}
 		return sb;
 
+	}
+	public RegistBean setKaiin(int id,String name,String sex) 
+	{
+		
 	}
 }
