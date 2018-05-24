@@ -1,5 +1,10 @@
 package domain;
 
-public class SexEnum {
+public class SexEnum
+{
 
+}
+enum Sex
+{
+	Otoko,Onna
 }

@@ -46,7 +46,6 @@ public class SerchSerblet extends HttpServlet {
 		int serchId=Integer.parseInt(serchIdStr);
 		KaiinServise ks=new KaiinServise();
 		sb= ks.getSerch(serchId);
-
 		request.setAttribute("bean", sb);
 		RequestDispatcher disp=request.getRequestDispatcher("/Serch.jsp");
 		disp.forward(request, response);

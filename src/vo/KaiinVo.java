@@ -2,7 +2,7 @@ package vo;
 
 /* Code Generator Information.
  * generator Version 1.0.0 release 2007/10/10
- * generated Date Thu May 24 14:13:12 JST 2018
+ * generated Date Thu May 24 15:42:03 JST 2018
  */
 import java.io.Serializable;
 
@@ -34,6 +34,11 @@ public class KaiinVo implements Serializable{
 	private java.sql.Date tourokubi;
 
 	/**
+	 * sex:varchar(45)
+	 */
+	private String sex;
+
+	/**
 	* Constractor
 	*/
 	public KaiinVo(){}
@@ -58,6 +63,10 @@ public class KaiinVo implements Serializable{
 
 	public void setTourokubi(java.sql.Date tourokubi){ this.tourokubi = tourokubi; }
 
+	public String getSex(){ return this.sex; }
+
+	public void setSex(String sex){ this.sex = sex; }
+
 	public String toString(){
 		StringBuffer buffer = new StringBuffer();
 		buffer.append("[KaiinVo:");
@@ -67,6 +76,8 @@ public class KaiinVo implements Serializable{
 		buffer.append(kaiinname);
 		buffer.append(" tourokubi: ");
 		buffer.append(tourokubi);
+		buffer.append(" sex: ");
+		buffer.append(sex);
 		buffer.append("]");
 		return buffer.toString();
 	}
