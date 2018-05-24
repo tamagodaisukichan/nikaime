@@ -23,6 +23,7 @@ public class KaiinServise {
 			sb.setKaiinId(kv.getKaiinnum());
 			sb.setKaiinName(kv.getKaiinname());
 			sb.setTourokubi(kv.getTourokubi());
+
 		} catch (ClassNotFoundException | SQLException e) {
 
 			e.printStackTrace();
@@ -30,8 +31,18 @@ public class KaiinServise {
 		return sb;
 
 	}
-	public RegistBean setKaiin(int id,String name,String sex) 
+	public RegistBean setKaiin(int id,String name,String sex)
 	{
-		
+		KaiinVo kv=null;
+		RegistBean rb=new RegistBean();
+		try {
+			Connection con=Dao.getConnection();
+			kv= mgr.registKaiin(id, con);
+
+		} catch (ClassNotFoundException | SQLException e) {
+
+			e.printStackTrace();
+		}
+		return rb;
 	}
 }

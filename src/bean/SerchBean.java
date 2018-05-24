@@ -7,6 +7,13 @@ public class SerchBean implements Serializable{
 	private int kaiinId;
 	private String kaiinName;
 	private Date tourokubi;
+	private String sex;
+	public String getSex() {
+		return sex;
+	}
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
 	public int getKaiinId() {
 		return kaiinId;
 	}

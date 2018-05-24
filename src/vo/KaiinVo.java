@@ -9,8 +9,8 @@ import java.io.Serializable;
 /**
  * KaiinVo.
  * @author takeshi.ino
- * @version 1.0 
- * history 
+ * @version 1.0
+ * history
  * Symbol	Date		Person		Note
  * [1]		2018/05/24	takeshi.ino		Generated.
  */
@@ -38,6 +38,8 @@ public class KaiinVo implements Serializable{
 	 */
 	private String sex;
 
+	//private SexEnum se;
+
 	/**
 	* Constractor
 	*/
@@ -63,9 +65,9 @@ public class KaiinVo implements Serializable{
 
 	public void setTourokubi(java.sql.Date tourokubi){ this.tourokubi = tourokubi; }
 
-	public String getSex(){ return this.sex; }
+	public String getSex(){ return sex; }
 
-	public void setSex(String sex){ this.sex =; }
+	public void setSex(String sex){ this.sex=sex; }
 
 	public String toString(){
 		StringBuffer buffer = new StringBuffer();

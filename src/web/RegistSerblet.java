@@ -2,6 +2,7 @@ package web;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bean.RegistBean;
+import servise.KaiinServise;
 
 /**
  * Servlet implementation class RegistSerblet
@@ -44,7 +46,11 @@ public class RegistSerblet extends HttpServlet {
 		String registName=request.getParameter("name");
 		String registSex=request.getParameter("sex");
 		int registId=Integer.parseInt(registIdStr);
-		
+		KaiinServise ks=new KaiinServise();
+		rb=ks.setKaiin(registId, registName, registSex);
+		request.setAttribute("bean", rb);
+		RequestDispatcher disp=request.getRequestDispatcher("/Regist.jsp");
+		disp.forward(request, response);
 
 	}
 

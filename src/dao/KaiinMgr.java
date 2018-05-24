@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
+
 //import data.Kaiin;
 import vo.KaiinVo;
 
@@ -77,6 +79,7 @@ public class KaiinMgr {
 				k.setKaiinnum		(rset.getInt(1));
 				k.setKaiinname		(rset.getString(2));
 				k.setTourokubi		(rset.getDate(3));
+				k.setSex			(rset.getString(4));
 				//Systk.out.println(rset.getString(1));
 			}
 		}
@@ -85,6 +88,28 @@ public class KaiinMgr {
 			throw e;
 		}
 
+		return k;
+	}
+	public KaiinVo registKaiin(int i, Connection con) throws SQLException {
+		PreparedStatement stmt = null;
+		ResultSet rset = null;
+		KaiinVo k = new KaiinVo();
+
+		try {
+
+			/* Statkentの作成 */
+			stmt = con.prepareStatement(INSERT_SQL);
+
+			stmt.setInt		(1, k.getKaiinnum());
+			stmt.setString	(2, k.getKaiinname());
+			stmt.setDate	(3, new java.sql.Date(k.getTourokubi().getTime()));
+			stmt.setString	(4, k.getSex());
+			@SuppressWarnings("unused")
+			int num=stmt.executeUpdate();
+		}
+		catch (MySQLIntegrityConstraintViolationException e) {
+			System.out.println("入力した会員番号は既に使用されています");
+		}
 		return k;
 	}
 
