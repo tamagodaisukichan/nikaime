@@ -35,8 +35,8 @@ public class KaiinServise {
 	public RegistBean setKaiin(int id, String name, String sex) {
 
 		RegistBean rb = new RegistBean();
-		try {
-			Connection con = Dao.getConnection();
+		try (Connection con = Dao.getConnection();) {
+
 			KaiinVo kv = mgr.registKaiin(id, con);
 
 		} catch (ClassNotFoundException | SQLException e) {

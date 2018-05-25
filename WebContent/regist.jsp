@@ -8,9 +8,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%=bean.getKaiinId() %><br>
-	<%=bean.getKaiinName() %><br>
-	<%=bean.getTourokubi() %><br>
-	<%=bean.getSex() %>
+<h3>会員登録完了</h3>
+以下の内容で会員を登録しました。
+
+	ID：<%=bean.getKaiinId() %>　名前：<%=bean.getKaiinName() %>
+	　性別：<%=bean.getSex()%>　登録日：<%=bean.getTourokubi()%><br>
+<br>
+
+	<a href ='/KaiinDBWeb/index.html'>メニューに戻る</a>
+
 </body>
 </html>

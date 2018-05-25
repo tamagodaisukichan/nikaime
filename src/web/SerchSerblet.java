@@ -41,7 +41,7 @@ public class SerchSerblet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String serchIdStr = request.getParameter("Id");
+		String serchIdStr = request.getParameter("id");
 		int serchId = Integer.parseInt(serchIdStr);
 		KaiinServise ks = new KaiinServise();
 		SerchBean sb = ks.getSerch(serchId);

@@ -19,18 +19,19 @@ import servise.KaiinServise;
 public class RegistSerblet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public RegistSerblet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public RegistSerblet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
@@ -38,18 +39,20 @@ public class RegistSerblet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//doGet(request, response);
-		RegistBean rb=new RegistBean();
-		String registIdStr=request.getParameter("Id");
-		String registName=request.getParameter("name");
-		String registSex=request.getParameter("sex");
-		int registId=Integer.parseInt(registIdStr);
-		KaiinServise ks=new KaiinServise();
-		rb=ks.setKaiin(registId, registName, registSex);
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		//フォーム内の値を取得
+		String registIdStr = request.getParameter("id");
+		String registName = request.getParameter("name");
+		String registSex = request.getParameter("sex");
+		//IDを数値に変換
+		int registId = Integer.parseInt(registIdStr);
+
+		KaiinServise ks = new KaiinServise();
+		RegistBean rb = ks.setKaiin(registId, registName, registSex);
 		request.setAttribute("bean", rb);
-		RequestDispatcher disp=request.getRequestDispatcher("/regist.jsp");
+		RequestDispatcher disp = request.getRequestDispatcher("/regist.jsp");
 		disp.forward(request, response);
 
 	}

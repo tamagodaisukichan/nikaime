@@ -9,7 +9,8 @@
 </head>
 <body>
 <h3>検索結果</h3>
-	ID：<%=bean.getKaiinId() %>　名前：<%=bean.getKaiinName() %>　登録日：<%=bean.getTourokubi()%><br>
+	ID：<%=bean.getKaiinId() %>　名前：<%=bean.getKaiinName() %>
+	　性別：<%=bean.getSex()%>　登録日：<%=bean.getTourokubi()%><br>
 	<br>
 	<a href ='/KaiinDBWeb/index.html'>メニューに戻る</a>
 </body>
