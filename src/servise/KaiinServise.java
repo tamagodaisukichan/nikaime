@@ -2,7 +2,9 @@ package servise;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
+import bean.ListOutBean;
 import bean.RegistBean;
 import bean.SerchBean;
 import dao.Dao;
@@ -33,7 +35,7 @@ public class KaiinServise {
         return sb;
 
     }
-//会員登録
+  //会員登録
     public RegistBean setKaiin(int id, String name, SexEnum sex) {
 
         RegistBean rb = new RegistBean();
@@ -51,5 +53,19 @@ public class KaiinServise {
             e.printStackTrace();
         }
         return rb;
+    }
+  //会員一覧
+    public ListOutBean allKaiinList() {
+
+        ListOutBean lob = new ListOutBean();
+        try (Connection con = Dao.getConnection();) {
+
+            List<KaiinVo> kv = mgr.allKaiin(con);
+
+        } catch (ClassNotFoundException | SQLException e) {
+
+            e.printStackTrace();
+        }
+        return lob;
     }
 }
