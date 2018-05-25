@@ -16,16 +16,18 @@
   <td>性別</td>
   <td>登録日</td>
   </tr>
-  <tr>
+
     <% for (bean.KaiinLineBean klb : bean.getList()) { %>
+      <tr>
     <td><%= klb.getKaiinId() %></td>
     <td><%= klb.getKaiinName() %></td>
     <td><%= klb.getSex() %></td>
     <td><%= klb.getTourokubi() %></td>
+      </tr>
     <%
       }
     %>
-  </tr>
+
   </table>
   <a href='/KaiinDBWeb/index.html'>メニューに戻る</a>
 

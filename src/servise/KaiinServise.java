@@ -62,7 +62,6 @@ public class KaiinServise {
     public ListOutBean allKaiinList() {
 
         ListOutBean lob = new ListOutBean();
-        KaiinLineBean klb = new KaiinLineBean();
 
         try (Connection con = Dao.getConnection();) {
 
@@ -71,6 +70,8 @@ public class KaiinServise {
             List<KaiinLineBean> list =new  ArrayList<KaiinLineBean>();
 
             for(KaiinVo kv: kvList) {
+                KaiinLineBean klb = new KaiinLineBean();
+
                 klb.setKaiinId(kv.getKaiinno());
                 klb.setKaiinName(kv.getName());
                 klb.setSex(kv.getSex());
