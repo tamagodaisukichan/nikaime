@@ -19,18 +19,18 @@ import servise.KaiinServise;
 public class SerchSerblet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public SerchSerblet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public SerchSerblet() {
+		super();
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 
 	}
@@ -38,16 +38,15 @@ public class SerchSerblet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//doGet(request, response);
-		SerchBean sb=new SerchBean();
-		String serchIdStr=request.getParameter("Id");
-		int serchId=Integer.parseInt(serchIdStr);
-		KaiinServise ks=new KaiinServise();
-		sb= ks.getSerch(serchId);
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		String serchIdStr = request.getParameter("Id");
+		int serchId = Integer.parseInt(serchIdStr);
+		KaiinServise ks = new KaiinServise();
+		SerchBean sb = ks.getSerch(serchId);
 		request.setAttribute("bean", sb);
-		RequestDispatcher disp=request.getRequestDispatcher("/Serch.jsp");
+		RequestDispatcher disp = request.getRequestDispatcher("/serch.jsp");
 		disp.forward(request, response);
 	}
 

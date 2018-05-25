@@ -11,18 +11,18 @@ import vo.KaiinVo;
 
 public class KaiinServise {
 
-	KaiinMgr mgr=new KaiinMgr();
-	public SerchBean getSerch(int Id)
-	{
-		KaiinVo kv=null;
-		SerchBean sb=new SerchBean();
-		try {
-			Connection con=Dao.getConnection();
-			kv= mgr.searchKaiin(Id, con);
+	KaiinMgr mgr = new KaiinMgr();
 
-			sb.setKaiinId(kv.getKaiinnum());
-			sb.setKaiinName(kv.getKaiinname());
-			sb.setTourokubi(kv.getTourokubi());
+	public SerchBean getSerch(int Id) {
+		KaiinVo kv = null;
+		SerchBean sb = new SerchBean();
+		try (Connection con = Dao.getConnection();) {
+
+			kv = mgr.searchKaiin(Id, con);
+
+			sb.setKaiinId(kv.getKaiinno());
+			sb.setKaiinName(kv.getName());
+			sb.setTourokubi(kv.getRegistdate());
 
 		} catch (ClassNotFoundException | SQLException e) {
 
@@ -31,13 +31,13 @@ public class KaiinServise {
 		return sb;
 
 	}
-	public RegistBean setKaiin(int id,String name,String sex)
-	{
-		KaiinVo kv=null;
-		RegistBean rb=new RegistBean();
+
+	public RegistBean setKaiin(int id, String name, String sex) {
+
+		RegistBean rb = new RegistBean();
 		try {
-			Connection con=Dao.getConnection();
-			kv= mgr.registKaiin(id, con);
+			Connection con = Dao.getConnection();
+			KaiinVo kv = mgr.registKaiin(id, con);
 
 		} catch (ClassNotFoundException | SQLException e) {
 

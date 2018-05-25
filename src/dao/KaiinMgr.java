@@ -28,7 +28,7 @@ public class KaiinMgr {
 			"FROM " +
 			"kaiin " +
 			"WHERE " +
-			"kaiinNum = ?;";
+			"kaiinNo = ?;";
 
 	final static String ALL_SQL = "SELECT " +
 			"* " +
@@ -76,9 +76,9 @@ public class KaiinMgr {
 			while (rset.next()) {
 
 				//k.setkployeeid(rset.getInt("kPLOYEEID") );
-				k.setKaiinnum		(rset.getInt(1));
-				k.setKaiinname		(rset.getString(2));
-				k.setTourokubi		(rset.getDate(3));
+				k.setKaiinno	(rset.getInt(1));
+				k.setName		(rset.getString(2));
+				k.setRegistdate		(rset.getDate(3));
 				k.setSex			(rset.getString(4));
 				//Systk.out.println(rset.getString(1));
 			}
@@ -92,7 +92,6 @@ public class KaiinMgr {
 	}
 	public KaiinVo registKaiin(int i, Connection con) throws SQLException {
 		PreparedStatement stmt = null;
-		ResultSet rset = null;
 		KaiinVo k = new KaiinVo();
 
 		try {
@@ -100,9 +99,9 @@ public class KaiinMgr {
 			/* Statkentの作成 */
 			stmt = con.prepareStatement(INSERT_SQL);
 
-			stmt.setInt		(1, k.getKaiinnum());
-			stmt.setString	(2, k.getKaiinname());
-			stmt.setDate	(3, new java.sql.Date(k.getTourokubi().getTime()));
+			stmt.setInt		(1, k.getKaiinno());
+			stmt.setString	(2, k.getName());
+			stmt.setDate	(3, new java.sql.Date(k.getRegistdate().getTime()));
 			stmt.setString	(4, k.getSex());
 			@SuppressWarnings("unused")
 			int num=stmt.executeUpdate();

@@ -49,7 +49,7 @@ public class RegistSerblet extends HttpServlet {
 		KaiinServise ks=new KaiinServise();
 		rb=ks.setKaiin(registId, registName, registSex);
 		request.setAttribute("bean", rb);
-		RequestDispatcher disp=request.getRequestDispatcher("/Regist.jsp");
+		RequestDispatcher disp=request.getRequestDispatcher("/regist.jsp");
 		disp.forward(request, response);
 
 	}

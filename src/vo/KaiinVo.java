@@ -2,82 +2,99 @@ package vo;
 
 /* Code Generator Information.
  * generator Version 1.0.0 release 2007/10/10
- * generated Date Thu May 24 15:42:03 JST 2018
+ * generated Date Fri May 25 10:30:47 JST 2018
  */
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * KaiinVo.
- * @author takeshi.ino
+ * @author yuka.tokoro
  * @version 1.0
  * history
  * Symbol	Date		Person		Note
- * [1]		2018/05/24	takeshi.ino		Generated.
+ * [1]		2018/05/25	yuka.tokoro		Generated.
  */
-public class KaiinVo implements Serializable{
+public class KaiinVo implements Serializable {
 
 	public static final String TABLE = "KAIIN";
 
 	/**
-	 * kaiinNum:int(10) <Primary Key>
+	 * kaiinNo:int(10) <Primary Key>
 	 */
-	private int kaiinnum;
+	private int kaiinno;
 
 	/**
-	 * kaiinName:varchar(200)
+	 * name:varchar(200)
 	 */
-	private String kaiinname;
+	private String name;
 
 	/**
-	 * tourokubi:date(0)
+	 * registDate:date(0)
 	 */
-	private java.sql.Date tourokubi;
+	private Date registdate;
 
 	/**
-	 * sex:varchar(45)
+	 * sex:varchar(3)
 	 */
 	private String sex;
 
-	//private SexEnum se;
-
 	/**
 	* Constractor
 	*/
-	public KaiinVo(){}
-
-	/**
-	* Constractor
-	* @param <code>kaiinnum</code>
-	*/
-	public KaiinVo(int kaiinnum){
-		this.kaiinnum = kaiinnum;
+	public KaiinVo() {
+		this.registdate = new Date(); //登録日時
 	}
 
-	public int getKaiinnum(){ return this.kaiinnum; }
+	/**
+	* Constractor
+	* @param <code>kaiinno</code>
+	*/
+	public KaiinVo(int kaiinno) {
+		this.kaiinno = kaiinno;
+	}
 
-	public void setKaiinnum(int kaiinnum){ this.kaiinnum = kaiinnum; }
+	public int getKaiinno() {
+		return this.kaiinno;
+	}
 
-	public String getKaiinname(){ return this.kaiinname; }
+	public void setKaiinno(int kaiinno) {
+		this.kaiinno = kaiinno;
+	}
 
-	public void setKaiinname(String kaiinname){ this.kaiinname = kaiinname; }
+	public String getName() {
+		return this.name;
+	}
 
-	public java.sql.Date getTourokubi(){ return this.tourokubi; }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-	public void setTourokubi(java.sql.Date tourokubi){ this.tourokubi = tourokubi; }
+	public Date getRegistdate() {
+		return this.registdate;
+	}
 
-	public String getSex(){ return sex; }
+	public void setRegistdate(java.sql.Date registdate) {
+		this.registdate = registdate;
+	}
 
-	public void setSex(String sex){ this.sex=sex; }
+	public String getSex() {
+		return this.sex;
+	}
 
-	public String toString(){
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+
+	public String toString() {
 		StringBuffer buffer = new StringBuffer();
 		buffer.append("[KaiinVo:");
-		buffer.append(" kaiinnum: ");
-		buffer.append(kaiinnum);
-		buffer.append(" kaiinname: ");
-		buffer.append(kaiinname);
-		buffer.append(" tourokubi: ");
-		buffer.append(tourokubi);
+		buffer.append(" kaiinno: ");
+		buffer.append(kaiinno);
+		buffer.append(" name: ");
+		buffer.append(name);
+		buffer.append(" registdate: ");
+		buffer.append(registdate);
 		buffer.append(" sex: ");
 		buffer.append(sex);
 		buffer.append("]");

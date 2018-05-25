@@ -5,16 +5,19 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h3>会員登録</h3>
 	<form method="POST" action="RegistSerblet">
-		登録するＩＤ<input name="Id" type="text" ><br>
-		登録する名前<input name="Name" type="text" ><br>
-		<input name="sex" type="radio" value="otoko">
-		<input name="sex" type="radio" value="onna">
-		<input type="submit" value="とーろく">
+		ID　<input name="Id" type="text"><br>
+		名前<input name="Name" type="text"><br>
+			<input name="sex" type="radio" value="otoko">男
+			<input name="sex" type="radio" value="onna">女
+		<input type="submit" value="登録">
 	</form>
+<br>
+	<h3>会員検索</h3>
 	<form method="POST" action="SerchSerblet">
-		検索するＩＤ<input name="Id" type="text" ><br>
-		<input type="submit" value="けんさく">
+		ID<input name="Id" type="text">
+		<input type="submit" value="検索">
 	</form>
 </body>
 </html>

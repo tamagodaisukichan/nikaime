@@ -8,8 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%=bean.getKaiinId() %><br>
-	<%=bean.getKaiinName() %><br>
-	<%=bean.getTourokubi() %><br>
+<h3>検索結果</h3>
+	ID：<%=bean.getKaiinId() %>　名前：<%=bean.getKaiinName() %>　登録日：<%=bean.getTourokubi()%><br>
+	<br>
+	<a href ='/KaiinDBWeb/index.html'>メニューに戻る</a>
 </body>
 </html>
