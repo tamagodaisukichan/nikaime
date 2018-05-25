@@ -2,19 +2,22 @@ package servise;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
+import bean.KaiinLineBean;
 import bean.ListOutBean;
 import bean.RegistBean;
 import bean.SerchBean;
 import dao.Dao;
-import dao.KaiinMgr;
+import dao.KaiinManager;
 import domain.SexEnum;
 import vo.KaiinVo;
 
 public class KaiinServise {
 
-    KaiinMgr mgr = new KaiinMgr();
+    KaiinManager mgr = new KaiinManager();
 //会員検索
     public SerchBean getSerch(int Id) {
 
@@ -54,13 +57,27 @@ public class KaiinServise {
         }
         return rb;
     }
+
   //会員一覧
     public ListOutBean allKaiinList() {
 
         ListOutBean lob = new ListOutBean();
+        KaiinLineBean klb = new KaiinLineBean();
+
         try (Connection con = Dao.getConnection();) {
 
-            List<KaiinVo> kv = mgr.allKaiin(con);
+            Collection<KaiinVo> kvList = mgr.allKaiin(con);
+
+            List<KaiinLineBean> list =new  ArrayList<KaiinLineBean>();
+
+            for(KaiinVo kv: kvList) {
+                klb.setKaiinId(kv.getKaiinno());
+                klb.setKaiinName(kv.getName());
+                klb.setSex(kv.getSex());
+                klb.setTourokubi(kv.getRegistdate());
+                list.add(klb);
+            }
+            lob.setList(list);
 
         } catch (ClassNotFoundException | SQLException e) {
 

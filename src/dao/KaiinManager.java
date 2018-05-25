@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 
@@ -13,9 +13,9 @@ import domain.SexEnum;
 //import data.Kaiin;
 import vo.KaiinVo;
 
-public class KaiinMgr {
+public class KaiinManager {
 
-    public KaiinMgr() {
+    public KaiinManager() {
 
     }
 
@@ -98,12 +98,12 @@ public class KaiinMgr {
     }
 
     // 会員情報を全件取得
-    public List<KaiinVo> allKaiin(Connection con) throws SQLException {
+    public Collection<KaiinVo> allKaiin(Connection con) throws SQLException {
 
         PreparedStatement stmt = null;
         ResultSet rset = null;
 
-        List<KaiinVo> list = new ArrayList<KaiinVo>();
+        Collection<KaiinVo> list = new ArrayList<KaiinVo>();
 
         try {
 
