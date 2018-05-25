@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>会員登録完了</title>
 </head>
 <body>
 <h3>会員登録完了</h3>

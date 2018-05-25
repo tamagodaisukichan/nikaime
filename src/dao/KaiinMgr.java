@@ -20,8 +20,9 @@ public class KaiinMgr {
 			"kaiin " +
 			"( kaiinNo " +
 			",name " +
+			",sex " +
 			",registDate ) " +
-			"VALUES (?, ?, ?);";
+			"VALUES (?, ?, ?, ?);";
 
 	final static String SEARCH_SQL = "SELECT " +
 			"* " +
@@ -35,28 +36,7 @@ public class KaiinMgr {
 			"FROM " +
 			"kaiin ;";
 
-	// 会員登録
-//	public void addKaiin(Kaiin k, Connection con) throws SQLException {
-//
-//		PreparedStatement stmt = null;
-//
-//		try {
-//			/* Statkentの作成 */
-//			stmt = con.prepareStatement(INSERT_SQL);
-//
-//			stmt.setInt		(1, k.getId());
-//			stmt.setString	(2, k.getName());
-//			stmt.setDate	(3, new java.sql.Date(k.getRegistDate().getTime()));
-//			@SuppressWarnings("unused")
-//			int num=stmt.executeUpdate();
-//
-//		} catch (MySQLIntegrityConstraintViolationException e) {
-//			System.out.println("入力した会員番号は既に使用されています");
-//		}
-//
-//	}
-
-	// idから会員情報を表示
+	// 検索
 	public KaiinVo searchKaiin(int i, Connection con) throws SQLException {
 		PreparedStatement stmt = null;
 		ResultSet rset = null;
@@ -78,8 +58,8 @@ public class KaiinMgr {
 				//k.setkployeeid(rset.getInt("kPLOYEEID") );
 				k.setKaiinno	(rset.getInt(1));
 				k.setName		(rset.getString(2));
-				k.setRegistdate		(rset.getDate(3));
-				k.setSex			(rset.getString(4));
+				k.setSex			(rset.getString(3));
+				k.setRegistdate		(rset.getDate(4));
 				//Systk.out.println(rset.getString(1));
 			}
 		}
@@ -90,19 +70,41 @@ public class KaiinMgr {
 
 		return k;
 	}
-	public KaiinVo registKaiin(int i, Connection con) throws SQLException {
+// 会員登録
+//	public void addKaiin(Kaiin k, Connection con) throws SQLException {
+//
+//		PreparedStatement stmt = null;
+//
+//		try {
+//			/* Statkentの作成 */
+//			stmt = con.prepareStatement(INSERT_SQL);
+//
+//			stmt.setInt		(1, k.getId());
+//			stmt.setString	(2, k.getName());
+//			stmt.setDate	(3, new java.sql.Date(k.getRegistDate().getTime()));
+//			@SuppressWarnings("unused")
+//			int num=stmt.executeUpdate();
+//
+//		} catch (MySQLIntegrityConstraintViolationException e) {
+//			System.out.println("入力した会員番号は既に使用されています");
+//		}
+//
+//	}
+
+	//会員登録
+	public KaiinVo registKaiin(int id, String name, String sex, Connection con) throws SQLException {
+
 		PreparedStatement stmt = null;
-		KaiinVo k = new KaiinVo();
+		KaiinVo k = new KaiinVo(id, name, sex);
 
 		try {
-
 			/* Statkentの作成 */
 			stmt = con.prepareStatement(INSERT_SQL);
 
 			stmt.setInt		(1, k.getKaiinno());
 			stmt.setString	(2, k.getName());
-			stmt.setDate	(3, new java.sql.Date(k.getRegistdate().getTime()));
-			stmt.setString	(4, k.getSex());
+			stmt.setString	(3, k.getSex());
+			stmt.setDate	(4, new java.sql.Date(k.getRegistdate().getTime()));
 			@SuppressWarnings("unused")
 			int num=stmt.executeUpdate();
 		}

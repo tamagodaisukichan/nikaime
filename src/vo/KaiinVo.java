@@ -42,7 +42,10 @@ public class KaiinVo implements Serializable {
 	/**
 	* Constractor
 	*/
-	public KaiinVo() {
+	public KaiinVo(int id, String name, String sex) {
+		this.kaiinno= id;
+		this.name = name;
+		this.sex = sex;
 		this.registdate = new Date(); //登録日時
 	}
 
@@ -53,6 +56,8 @@ public class KaiinVo implements Serializable {
 	public KaiinVo(int kaiinno) {
 		this.kaiinno = kaiinno;
 	}
+
+	public KaiinVo() {}
 
 	public int getKaiinno() {
 		return this.kaiinno;
