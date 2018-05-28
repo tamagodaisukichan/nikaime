@@ -18,7 +18,8 @@ import vo.KaiinVo;
 public class KaiinServise {
 
     KaiinManager mgr = new KaiinManager();
-//会員検索
+
+    //会員検索
     public SerchBean getSerch(int Id) {
 
         SerchBean sb = new SerchBean();
@@ -38,7 +39,8 @@ public class KaiinServise {
         return sb;
 
     }
-  //会員登録
+
+    //会員登録
     public RegistBean setKaiin(int id, String name, SexEnum sex) {
 
         RegistBean rb = new RegistBean();
@@ -58,7 +60,7 @@ public class KaiinServise {
         return rb;
     }
 
-  //会員一覧
+    //会員一覧
     public ListOutBean allKaiinList() {
 
         ListOutBean lob = new ListOutBean();
@@ -67,11 +69,10 @@ public class KaiinServise {
 
             Collection<KaiinVo> kvList = mgr.allKaiin(con);
 
-            List<KaiinLineBean> list =new  ArrayList<KaiinLineBean>();
+            List<KaiinLineBean> list = new ArrayList<KaiinLineBean>();
 
-            for(KaiinVo kv: kvList) {
+            for (KaiinVo kv : kvList) {
                 KaiinLineBean klb = new KaiinLineBean();
-
                 klb.setKaiinId(kv.getKaiinno());
                 klb.setKaiinName(kv.getName());
                 klb.setSex(kv.getSex());

@@ -29,6 +29,7 @@
     %>
 
   </table>
+  <br>
   <a href='/KaiinDBWeb/index.html'>メニューに戻る</a>
 
 </body>
